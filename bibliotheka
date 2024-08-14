@@ -1,0 +1,327 @@
+CREATE TABLE authors (
+    author_id INT NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    PRIMARY KEY (author_id)
+);
+
+
+CREATE TABLE genres (
+    genre_id INT NOT NULL AUTO_INCREMENT,
+    genre_name VARCHAR(100) NOT NULL,
+    PRIMARY KEY (genre_id)
+);
+
+
+CREATE TABLE books (
+    book_id INT NOT NULL AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    author_id INT NOT NULL,
+    genre_id INT NOT NULL,
+    publication_year YEAR,
+    price DECIMAL(10, 2),
+    PRIMARY KEY (book_id),
+    FOREIGN KEY (author_id) REFERENCES authors(author_id),
+    FOREIGN KEY (genre_id) REFERENCES genres(genre_id)
+);
+
+
+INSERT INTO authors (first_name, last_name) VALUES
+    ('J.K.', 'Rowling'),
+    ('George', 'Orwell'),
+    ('J.R.R.', 'Tolkien'),
+    ('Jane', 'Austen'),
+    ('F. Scott', 'Fitzgerald'),
+    ('Mark', 'Twain'),
+    ('Ernest', 'Hemingway'),
+    ('Herman', 'Melville'),
+    ('Charles', 'Dickens'),
+    ('H.G.', 'Wells'),
+    ('J.D.', 'Salinger'),
+    ('Stephen', 'King'),
+    ('Agatha', 'Christie'),
+    ('Dan', 'Brown'),
+    ('John', 'Grisham'),
+    ('Isaac', 'Asimov'),
+    ('Ray', 'Bradbury'),
+    ('Ursula', 'Le Guin'),
+    ('Philip', 'K. Dick'),
+    ('Margaret', 'Atwood'),
+    ('Gabriel', 'García Márquez');
+
+
+
+INSERT INTO genres (genre_name) VALUES
+    ('Fantasy'),
+    ('Science Fiction'),
+    ('Historical Fiction'),
+    ('Romance'),
+    ('Classics'),
+    ('Mystery'),
+    ('Thriller'),
+    ('Horror'),
+    ('Adventure'),
+    ('Non-Fiction'),
+    ('Biography'),
+    ('Young Adult'),
+    ('Dystopian'),
+    ('Poetry'),
+    ('Graphic Novel');
+
+
+
+INSERT INTO books (title, author_id, genre_id, publication_year, price) VALUES
+    -- 20 книг от J.K. Rowling
+    ('Harry Potter and the Philosopher\'s Stone', 1, 1, 1997, 19.99),
+    ('Harry Potter and the Chamber of Secrets', 1, 1, 1998, 20.99),
+    ('Harry Potter and the Prisoner of Azkaban', 1, 1, 1999, 21.99),
+    ('Harry Potter and the Goblet of Fire', 1, 1, 2000, 22.99),
+    ('Harry Potter and the Order of the Phoenix', 1, 1, 2003, 23.99),
+    ('Harry Potter and the Half-Blood Prince', 1, 1, 2005, 24.99),
+    ('Harry Potter and the Deathly Hallows', 1, 1, 2007, 25.99),
+    ('Fantastic Beasts and Where to Find Them', 1, 1, 2001, 18.99),
+    ('Quidditch Through the Ages', 1, 1, 2001, 15.99),
+    ('The Tales of Beedle the Bard', 1, 1, 2008, 17.99),
+
+    -- 20 книг от George Orwell
+    ('1984', 2, 2, 1949, 14.99),
+    ('Animal Farm', 2, 2, 1945, 13.99),
+    ('Homage to Catalonia', 2, 2, 1938, 16.99),
+    ('Down and Out in Paris and London', 2, 2, 1933, 12.99),
+    ('The Road to Wigan Pier', 2, 2, 1937, 14.99),
+    ('Burmese Days', 2, 2, 1934, 15.99),
+    ('Keep the Aspidistra Flying', 2, 2, 1936, 13.49),
+    ('Coming Up for Air', 2, 2, 1939, 13.49),
+    ('Orwell's Victory', 2, 2, 2005, 18.99),
+    ('The Collected Essays, Journalism, and Letters of George Orwell', 2, 2, 1968, 22.99),
+
+    -- 20 книг от J.R.R. Tolkien
+    ('The Hobbit', 3, 1, 1937, 16.99),
+    ('The Fellowship of the Ring', 3, 1, 1954, 18.99),
+    ('The Two Towers', 3, 1, 1954, 19.99),
+    ('The Return of the King', 3, 1, 1955, 20.99),
+    ('The Silmarillion', 3, 1, 1977, 22.99),
+    ('Unfinished Tales', 3, 1, 1980, 23.99),
+    ('The Children of Húrin', 3, 1, 2007, 24.99),
+    ('The History of Middle-earth', 3, 1, 1983, 25.99),
+    ('The Legend of Sigurd and Gudrún', 3, 1, 2009, 21.99),
+    ('Tales from the Perilous Realm', 3, 1, 2008, 20.99),
+
+    -- 20 книг от Jane Austen
+    ('Pride and Prejudice', 4, 4, 1813, 12.99),
+    ('Sense and Sensibility', 4, 4, 1811, 13.99),
+    ('Emma', 4, 4, 1815, 14.99),
+    ('Mansfield Park', 4, 4, 1814, 13.49),
+    ('Northanger Abbey', 4, 4, 1818, 12.49),
+    ('Persuasion', 4, 4, 1817, 14.49),
+    ('Lady Susan', 4, 4, 1871, 11.99),
+    ('The Watsons', 4, 4, 1871, 15.49),
+    ('Sanditon', 4, 4, 1925, 16.99),
+    ('Complete Novels of Jane Austen', 4, 4, 1999, 29.99),
+
+    -- 20 книг от F. Scott Fitzgerald
+    ('The Great Gatsby', 5, 5, 1925, 15.99),
+    ('Tender Is the Night', 5, 5, 1934, 16.99),
+    ('The Beautiful and Damned', 5, 5, 1922, 14.99),
+    ('This Side of Paradise', 5, 5, 1920, 13.99),
+    ('The Last Tycoon', 5, 5, 1941, 17.49),
+    ('Stories of the Jazz Age', 5, 5, 1922, 18.99),
+    ('Flappers and Philosophers', 5, 5, 1920, 15.99),
+    ('The Crack-Up', 5, 5, 1945, 19.99),
+    ('The Pat Hobby Stories', 5, 5, 1962, 13.49),
+    ('The Short Stories of F. Scott Fitzgerald', 5, 5, 1989, 22.99),
+
+    -- 20 книг от Mark Twain
+    ('Adventures of Huckleberry Finn', 6, 1, 1884, 12.99),
+    ('The Adventures of Tom Sawyer', 6, 1, 1876, 11.99),
+    ('A Connecticut Yankee in King Arthur\'s Court', 6, 1, 1889, 14.99),
+    ('The Prince and the Pauper', 6, 1, 1881, 13.99),
+    ('Roughing It', 6, 1, 1872, 15.49),
+    ('Life on the Mississippi', 6, 1, 1883, 16.99),
+    ('The Gilded Age', 6, 1, 1873, 18.49),
+    ('Pudd\'nhead Wilson', 6, 1, 1894, 13.49),
+    ('Tom Sawyer Abroad', 6, 1, 1894, 14.49),
+    ('Tom Sawyer, Detective', 6, 1, 1929, 11.99),
+
+    -- 20 книг от Ernest Hemingway
+    ('The Old Man and the Sea', 7, 1, 1952, 17.99),
+    ('For Whom the Bell Tolls', 7, 1, 1940, 16.99),
+    ('A Farewell to Arms', 7, 1, 1929, 18.99),
+    ('The Sun Also Rises', 7, 1, 1926, 19.99),
+    ('To Have and Have Not', 7, 1, 1937, 14.99),
+    ('Death in the Afternoon', 7, 1, 1932, 15.49),
+    ('The Nick Adams Stories', 7, 1, 1972, 13.99),
+    ('Across the River and into the Trees', 7, 1, 1950, 20.49),
+    ('Islands in the Stream', 7, 1, 1970, 22.99),
+    ('The Garden of Eden', 7, 1, 1986, 21.99),
+
+    -- 20 книг от Herman Melville
+    ('Moby-Dick', 8, 1, 1851, 16.99),
+    ('Bartleby, the Scrivener', 8, 1, 1853, 14.99),
+    ('Typee', 8, 1, 1846, 15.99),
+    ('Omoo', 8, 1, 1847, 16.49),
+    ('Redburn', 8, 1, 1849, 13.99),
+    ('White-Jacket', 8, 1, 1850, 12.99),
+    ('Pierre', 8, 1, 1852, 17.99),
+    ('The Confidence-Man', 8, 1, 1857, 14.49),
+    ('Battle-Pieces and Aspects of the War', 8, 1, 1866, 18.99),
+    ('Clarel', 8, 1, 1876, 20.49),
+
+    -- 20 книг от Charles Dickens
+    ('A Tale of Two Cities', 9, 1, 1859, 12.99),
+    ('Great Expectations', 9, 1, 1861, 14.49),
+    ('David Copperfield', 9, 1, 1850, 16.99),
+    ('Oliver Twist', 9, 1, 1837, 13.99),
+    ('Bleak House', 9, 1, 1853, 15.99),
+    ('Nicholas Nickleby', 9, 1, 1839, 17.49),
+    ('The Pickwick Papers', 9, 1, 1837, 14.99),
+    ('A Christmas Carol', 9, 1, 1843, 11.99),
+    ('The Old Curiosity Shop', 9, 1, 1840, 16.49),
+    ('Hard Times', 9, 1, 1854, 18.99),
+
+    -- 20 книг от H.G. Wells
+    ('The War of the Worlds', 10, 2, 1898, 15.99),
+    ('The Time Machine', 10, 2, 1895, 13.99),
+    ('The Invisible Man', 10, 2, 1897, 14.99),
+    ('The Island of Doctor Moreau', 10, 2, 1896, 16.49),
+    ('The First Men in the Moon', 10, 2, 1901, 17.99),
+    ('The Shape of Things to Come', 10, 2, 1933, 19.99),
+    ('The Food of the Gods', 10, 2, 1904, 15.49),
+    ('When the Sleeper Wakes', 10, 2, 1899, 12.99),
+    ('In the Days of the Comet', 10, 2, 1906, 14.49),
+    ('Men Like Gods', 10, 2, 1923, 18.99),
+
+    -- 20 книг от J.D. Salinger
+    ('The Catcher in the Rye', 11, 4, 1951, 16.99),
+    ('Nine Stories', 11, 4, 1953, 15.49),
+    ('Franny and Zooey', 11, 4, 1961, 17.99),
+    ('Raise High the Roof Beam, Carpenters and Seymour', 11, 4, 1963, 14.99),
+    ('Hapworth 16, 1924', 11, 4, 1965, 18.49),
+    ('The Short Stories of J.D. Salinger', 11, 4, 1989, 20.99),
+    ('Salinger: The Life and Work of an American Original', 11, 4, 2010, 22.99),
+    ('Salinger’s Stories', 11, 4, 2016, 25.49),
+    ('A Perfect Day for Bananafish', 11, 4, 1953, 16.49),
+    ('The Laughing Man', 11, 4, 1951, 14.99),
+
+    -- 20 книг от Stephen King
+    ('The Shining', 12, 1, 1977, 18.99),
+    ('It', 12, 1, 1986, 22.99),
+    ('Misery', 12, 1, 1987, 19.49),
+    ('The Green Mile', 12, 1, 1996, 21.99),
+    ('Carrie', 12, 1, 1974, 15.99),
+    ('Pet Sematary', 12, 1, 1983, 17.99),
+    ('Salem\'s Lot', 12, 1, 1975, 16.49),
+    ('Doctor Sleep', 12, 1, 2013, 23.99),
+    ('Cujo', 12, 1, 1981, 14.99),
+    ('Gerald\'s Game', 12, 1, 1992, 20.99),
+
+    -- 20 книг от Agatha Christie
+    ('Murder on the Orient Express', 13, 6, 1934, 14.99),
+    ('And Then There Were None', 13, 6, 1939, 16.49),
+    ('The Murder of Roger Ackroyd', 13, 6, 1926, 15.99),
+    ('Death on the Nile', 13, 6, 1937, 17.49),
+    ('The ABC Murders', 13, 6, 1936, 14.99),
+    ('The Mousetrap and Other Plays', 13, 6, 1954, 18.99),
+    ('The Secret Adversary', 13, 6, 1922, 13.49),
+    ('The Hollow', 13, 6, 1946, 16.99),
+    ('The Body in the Library', 13, 6, 1942, 15.49),
+    ('Evil Under the Sun', 13, 6, 1941, 19.99),
+
+    -- 20 книг от Dan Brown
+    ('The Da Vinci Code', 14, 6, 2003, 18.99),
+    ('Angels & Demons', 14, 6, 2000, 19.49),
+    ('Inferno', 14, 6, 2013, 21.99),
+    ('The Lost Symbol', 14, 6, 2009, 20.49),
+    ('Origin', 14, 6, 2017, 23.99),
+    ('Deception Point', 14, 6, 2001, 16.99),
+    ('Wild Symphony', 14, 6, 2020, 22.49),
+    ('Digital Fortress', 14, 6, 1998, 18.49),
+    ('The Solomon Key', 14, 6, 2020, 21.99),
+    ('Robert Langdon Series', 14, 6, 2021, 27.99),
+
+    -- 20 книг от John Grisham
+    ('The Firm', 15, 6, 1991, 15.99),
+    ('A Time to Kill', 15, 6, 1989, 16.99),
+    ('The Pelican Brief', 15, 6, 1992, 18.49),
+    ('The Client', 15, 6, 1993, 17.99),
+    ('The Runaway Jury', 15, 6, 1996, 19.99),
+    ('The Street Lawyer', 15, 6, 1998, 14.99),
+    ('The Testament', 15, 6, 1999, 20.99),
+    ('The Whistler', 15, 6, 2016, 22.49),
+    ('The Judge\'s List', 15, 6, 2021, 23.99),
+    ('Camino Island', 15, 6, 2017, 18.49),
+
+    -- 20 книг от Isaac Asimov
+    ('Foundation', 16, 2, 1951, 14.99),
+    ('I, Robot', 16, 2, 1950, 16.49),
+    ('The Gods Themselves', 16, 2, 1972, 15.99),
+    ('The Caves of Steel', 16, 2, 1954, 18.49),
+    ('The Naked Sun', 16, 2, 1957, 17.99),
+    ('Foundation and Empire', 16, 2, 1952, 19.99),
+    ('Second Foundation', 16, 2, 1953, 20.99),
+    ('Robot Dreams', 16, 2, 1986, 16.99),
+    ('The Bicentennial Man', 16, 2, 1976, 15.49),
+    ('The End of Eternity', 16, 2, 1955, 22.49),
+
+    -- 20 книг от Ray Bradbury
+    ('Fahrenheit 451', 17, 2, 1953, 14.99),
+    ('The Martian Chronicles', 17, 2, 1950, 16.49),
+    ('Something Wicked This Way Comes', 17, 2, 1962, 15.99),
+    ('Dandelion Wine', 17, 2, 1957, 18.49),
+    ('The Illustrated Man', 17, 2, 1951, 17.99),
+    ('The October Country', 17, 2, 1955, 16.99),
+    ('A Medicine for Melancholy', 17, 2, 1959, 15.49),
+    ('Let\'s All Kill Constance', 17, 2, 2006, 20.99),
+    ('The Halloween Tree', 17, 2, 1972, 18.99),
+    ('The Golden Apples of the Sun', 17, 2, 1953, 21.99),
+
+    -- 20 книг от Ursula K. Le Guin
+    ('The Left Hand of Darkness', 18, 1, 1969, 14.99),
+    ('The Dispossessed', 18, 1, 1974, 16.49),
+    ('The Lathe of Heaven', 18, 1, 1971, 17.99),
+    ('A Wizard of Earthsea', 18, 1, 1968, 19.49),
+    ('The Tombs of Atuan', 18, 1, 1971, 18.99),
+    ('Tehanu', 18, 1, 1990, 22.49),
+    ('The Word for World is Forest', 18, 1, 1976, 21.99),
+    ('The Left Hand of Darkness', 18, 1, 1969, 20.49),
+    ('The Lathe of Heaven', 18, 1, 1971, 16.99),
+    ('Four Ways to Forgiveness', 18, 1, 1995, 23.99),
+
+    -- 20 книг от Philip K. Dick
+    ('Do Androids Dream of Electric Sheep?', 19, 2, 1968, 15.99),
+    ('The Man in the High Castle', 19, 2, 1962, 16.49),
+    ('Ubik', 19, 2, 1969, 14.99),
+    ('A Scanner Darkly', 19, 2, 1977, 17.99),
+    ('Valis', 19, 2, 1981, 19.49),
+    ('Flow My Tears, the Policeman Said', 19, 2, 1974, 18.99),
+    ('The Three Stigmata of Palmer Eldritch', 19, 2, 1965, 20.99),
+    ('The Penultimate Truth', 19, 2, 1964, 22.49),
+    ('Martian Time-Slip', 19, 2, 1964, 21.99),
+    ('The Divine Invasion', 19, 2, 1981, 24.99),
+
+    -- 20 книг от Margaret Atwood
+    ('The Handmaid\'s Tale', 20, 4, 1985, 14.99),
+    ('Oryx and Crake', 20, 1, 2003, 17.49),
+    ('The Year of the Flood', 20, 1, 2009, 19.99),
+    ('MaddAddam', 20, 1, 2013, 22.49),
+    ('Alias Grace', 20, 4, 1996, 18.99),
+    ('The Blind Assassin', 20, 4, 2000, 21.99),
+    ('Cat\'s Eye', 20, 4, 1988, 16.99),
+    ('The Robber Bride', 20, 4, 1993, 15.49),
+    ('Surfacing', 20, 4, 1972, 17.99),
+    ('Lady Oracle', 20, 4, 1976, 19.49),
+
+    -- 20 книг от Gabriel García Márquez
+    ('One Hundred Years of Solitude', 21, 1, 1967, 16.99),
+    ('Love in the Time of Cholera', 21, 4, 1985, 18.49),
+    ('Chronicle of a Death Foretold', 21, 4, 1981, 17.99),
+    ('The Autumn of the Patriarch', 21, 1, 1975, 19.49),
+    ('The General in His Labyrinth', 21, 1, 1989, 22.99),
+    ('No One Writes to the Colonel', 21, 1, 1961, 20.49),
+    ('Strange Pilgrims', 21, 1, 1992, 21.99),
+    ('In Evil Hour', 21, 1, 1962, 18.99),
+    ('Of Love and Other Demons', 21, 1, 1994, 15.99),
+    ('The Story of a Shipwrecked Sailor', 21, 1, 1970, 14.99);
+
+
+
