@@ -28,6 +28,8 @@ VALUES
 
 SELECT * FROM t_ma_dt;
 
+drop table if exists t_ma_frankfurt;
+
 CREATE TABLE t_ma_frankfurt (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
