@@ -1,3 +1,6 @@
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8mb4;
+
 drop DATABASE if exists uebungen;
 
 CREATE DATABASE uebungen;
