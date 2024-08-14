@@ -69,3 +69,10 @@ END;
 
 -- Abfragen der Tabelle, um die Ergebnisse zu überprüfen
 SELECT * FROM t_personal;
+
+
+-- SHOW DATABASES; — показывает все базы данных.
+-- USE имя_базы; — переключает на указанную базу данных.
+-- SHOW TABLES; — показывает все таблицы в текущей базе данных.
+-- DESCRIBE имя_таблицы; — показывает структуру таблицы.
+-- SELECT * FROM имя_таблицы; — выводит все данные из таблицы.
