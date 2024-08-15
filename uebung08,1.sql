@@ -12,7 +12,7 @@ use bibliothek;
 source datenbank_bibliothek.sql;
 
 
-create table t_buecher_d (
+create table if not exists t_buecher_d (
     id varchar(13),
     isbn  varchar(13) primary key,
     titel varchar(100),
@@ -22,7 +22,7 @@ create table t_buecher_d (
 );
 
 
-create table t_leser_d (  
+create table if not exists t_leser_d (  
     nr int(11) primary key,
     name varchar(30),
     vname varchar(30),
@@ -31,7 +31,7 @@ create table t_leser_d (
     );
 
 
-create table t_verleih_d (    
+create table if not exists t_verleih_d (    
     isbn varchar(13),
     leser int(11),
     datum date,
