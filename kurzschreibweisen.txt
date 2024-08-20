@@ -1,0 +1,33 @@
+Neben SQL-Anweisungen versteht der "mysql"-Client folgende INTERNEN BEFEHLE
+bzw. ihre Abkürzung in Form einer zweibuchstabigen Escape-Sequenz (ein ";" als
+Abschluss ist hier nicht notwendig, schadet aber auch nicht):
+
+  +---------------+----+-------------------------------------------------------+
+  | Befehl        | ESC| Bedeutung                                             |
+  +---------------+----+-------------------------------------------------------+
+  | ? [<Arg>]     | \? | Synonym für "help" (Argument <Arg>)                   |
+  | CHARSET <C>   | \C | Zeichensatz <C> einschalten (für binlog-Verarbeitung) |
+  | CLEAR         | \c | SQL-Anweisung abbrechen                               |
+  | CONNECT [D H] | \r | Serververbindung neu aufbauen (Opt: <Db> und <Host>)  |
+  | DELIMITER <S> | \d | SQL-Kmdo-Begrenzer <S> def. (Zeilenrest, STD: ";")    |
+  | EDIT          | \e | Letzte SQL-Anweisung per $EDITOR/$VISUAL bearbeiten   |
+  | EGO           | \G | SQL-Anweisung ausführen (vErtikale Anzeige)           |
+  | EXIT          | \q | "mysql"-Client verlassen (auch Strg-C, Strg-D)        |
+  | GO            | \g | SQL-Anweisung ausführen (STD: ASCII-Tabellen Anz.)    |
+  | HELP          | \h | Diese Hilfe anzeigen (auch \?)                        |
+  | NOPAGER       | \n | Seitenweise Anzeige ausschalten (stdout)              |
+  | NOTEE         | \t | Nicht mehr in Ausgabedatei schreiben                  |
+  | NOWARNING     | \w | Keine Warnungen nach jeder Anweisung anzeigen (STD)   |
+  | PAGER [<Cmd>] | \P | Seitenweise Anzeige ein (STD: $PAGER, z.B. "less")    |
+  | PRINT         | \p | Aktuelle SQL-Anweisung ausgeben                       |
+  | PROMPT [<Str>]| \R | "mysql"-Client-Prompt <Str> festleg. (STD: "mysql> ") |
+  | QUIT          | \q | "mysql"-Client verlassen (auch Strg-C, Strg-D)        |
+  | REHASH        | \# | TAB-Completion-Hash aufbauen                          |
+  |RESETCONNECTION| \x | Verb. neu aufbauen (ab MY!5.7.3)                      |
+  | SOURCE <File> | \. | SQL-Datei <File> einlesen und ausführen (Include)     |
+  | STATUS        | \s | Server-Status anzeigen                                |
+  | SYSTEM <Cmd>  | \! | System-Kommando <Cmd> ausführen (Shell-Escape)        |
+  | TEE <File>    | \T | Ausgabedatei <File> setzen (alles zusätzlich dorthin) |
+  | USE <Db>      | \u | Auf Default/Standard-Datenbank <Db> umschalten        |
+  | WARNING       | \W | Warnungen nach jeder Anweisung anzeigen               |
+  +---------------+----+-------------------------------------------------------+
